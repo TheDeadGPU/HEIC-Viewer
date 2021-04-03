@@ -6,5 +6,14 @@
         x:Class="HEICViewer.MainWindow"
         Title="HEICViewer"
         Background="SlateGray">
-  <Image Name="ImageView"/>
+  <DockPanel>
+    <Menu DockPanel.Dock="Top">
+      <MenuItem Header="_File">
+        <MenuItem Name="OpenFile" Header="_Open..."/>
+        <Separator/>
+        <MenuItem Header="_Exit"/>
+      </MenuItem>
+    </Menu>
+    <Image Name="ImageView"/>
+  </DockPanel>
 </Window>
