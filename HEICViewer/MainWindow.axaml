@@ -11,7 +11,7 @@
       <MenuItem Header="_File">
         <MenuItem Name="OpenFile" Header="_Open..."/>
         <Separator/>
-        <MenuItem Header="_Exit"/>
+        <MenuItem Name="exitMenuItem" Header="_Exit"/>
       </MenuItem>
     </Menu>
     <Image Name="ImageView"/>

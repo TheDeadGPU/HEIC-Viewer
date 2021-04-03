@@ -16,7 +16,8 @@ namespace HEICViewer
 {
     public class MainWindow : Window
     {
-        MenuItem item;
+        MenuItem openFileMenuItem;
+        MenuItem exitMenuItem;
         public MainWindow()
         {
             InitializeComponent();
@@ -28,14 +29,23 @@ namespace HEICViewer
         private void InitializeComponent()
         {
             AvaloniaXamlLoader.Load(this);
-            item = this.Get<MenuItem>("OpenFile");
-            item.Click += Item_Click;
+            openFileMenuItem = this.Get<MenuItem>("OpenFile");
+            openFileMenuItem.Click += Item_Click;
+            exitMenuItem = this.Get<MenuItem>("exitMenuItem");
+            exitMenuItem.Click += ExitMenuItem_Click;
+
             string[] ARGS = Environment.GetCommandLineArgs();
             if (ARGS.Length > 1)
             {
                 ImageLoad(ARGS[1]);
             }
         }
+
+        private void ExitMenuItem_Click(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
+        {
+            Close();
+        }
+
         void ImageLoad(string path)
         {
             MagickImage image = new MagickImage(path);
